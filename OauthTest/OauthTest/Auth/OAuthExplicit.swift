@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-class OAuthExplicit: OAuth,URLSessionDelegate {
+class OAuthExplicit: OAuth {
 
   override  var oAuthUrl: String {
         get {
@@ -100,73 +100,45 @@ class OAuthExplicit: OAuth,URLSessionDelegate {
             "format": "json"
         ]
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
-        
-        
-       // super.applyNonSecureForAlamofire()
-        
-       
-        
         let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
-        
         print("Request Object:\(postingJSON)")
-        
-        
         let url : String = self.oAuthTokenUrl
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.url = NSURL(string: url) as URL?
         request.httpMethod = "POST"
-    
         //add params to request
-        request.httpBody = postingBody//jsonString!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion:true)
-
+        request.httpBody = postingBody
         let dataTask = session.dataTask(with: request as URLRequest) { (data:Data?, response:URLResponse?, error:Error?) -> Void in
             if((error) != nil) {
                 print(error!.localizedDescription)
             }else {
                 print("Succes:")
-                let responseData = String(data: data!, encoding: String.Encoding.utf8)
-                print(responseData)
-//                let dictData = try! PropertyListSerialization.propertyList(from: data!, options: PropertyListSerialization.ReadOptions() , format: nil)
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    if let theAccessToken = parsedData["access_token"] as? String {
+                        self.authToken = theAccessToken
+                        print(theAccessToken)
+                        NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
+                    }
+                        
+                    if let theRefreshToken = parsedData["refresh_token"] as? String{
+                        self.refreshToken = theRefreshToken
+                        print(theRefreshToken)
+                    }
 
+                } catch let error as NSError {
+                    print(error)
+                    Logger.shared.error(error)
+                }
 
-                
-
-                _ = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
-                let _: NSError?
-//                let jsonResult: AnyObject = try! JSONSerialization.jsonObject(with: data!, options:    JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-//                print(jsonResult)
             }
         }
         dataTask.resume()
-        
-//        _ = AXAlamofire.request(self.oAuthTokenUrl, method: .post, parameters: postingJSON, encoding:  URLEncoding.default, headers: nil).responseJSON { (response) in
-//            switch response.result {
-//            case .success(let tokenResult):
-//                Logger.shared.debug(tokenResult)
-//                let jsonResponse = tokenResult as! NSDictionary
-//
-//                if let theAccessToken = jsonResponse["access_token"] as? String {
-//                    self.authToken = theAccessToken
-//                    NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
-//                }
-//                
-//                if let theRefreshToken = jsonResponse["refresh_token"] as? String{
-//                    self.refreshToken = theRefreshToken
-//                }
-//                break
-//            case .failure(let error):
-//                Logger.shared.error(error)
-//                break
-//            }
-//
-//        }
 
     }
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        
-        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+    
 
-    }
     
     func refreshAccessToken(completion: @escaping ((_ error: String?) -> Void)) {
         guard self.refreshToken != nil else {
@@ -182,30 +154,43 @@ class OAuthExplicit: OAuth,URLSessionDelegate {
             "client_secret": self.clientSecret!,
             "format": "json"
         ]
-        
-        AXAlamofire.request(self.oAuthTokenUrl,
-                            method: .post,
-                            parameters: postingJSON,
-                            encoding: URLEncoding.default,
-                            headers: nil).responseJSON { (response) in
-            switch response.result {
-            case .success(let tokenResult):
-                let jsonResponse = tokenResult as! NSDictionary
-                Logger.shared.debug(tokenResult)
-                if let theAccessToken = jsonResponse["access_token"] as? String {
-                    self.authToken = theAccessToken
+                
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+        let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
+        print("Request Object:\(postingJSON)")
+        let url : String = self.oAuthTokenUrl
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.url = NSURL(string: url) as URL?
+        request.httpMethod = "POST"
+        //add params to request
+        request.httpBody = postingBody
+        let dataTask = session.dataTask(with: request as URLRequest) { (data:Data?, response:URLResponse?, error:Error?) -> Void in
+            if((error) != nil) {
+                print(error!.localizedDescription)
+            }else {
+                print("Succes:")
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    if let theAccessToken = parsedData["access_token"] as? String {
+                        self.authToken = theAccessToken
+                        print(theAccessToken)
+                        NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
+                    }
+                    
+                    if let theRefreshToken = parsedData["refresh_token"] as? String{
+                        self.refreshToken = theRefreshToken
+                        print(theRefreshToken)
+                    }
+                    
+                } catch let error as NSError {
+                    print(error)
+                    Logger.shared.error(error)
                 }
-                if let theRefreshToken = jsonResponse["refresh_token"] as? String{
-                    self.refreshToken = theRefreshToken
-                    completion(nil)
-                }
-                break
-            case .failure(let error):
-                completion(error.localizedDescription)
-                Logger.shared.error(error)
-                break
+                
             }
         }
+        dataTask.resume()
 
     }
     

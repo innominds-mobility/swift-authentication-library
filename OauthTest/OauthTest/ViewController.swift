@@ -12,17 +12,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Username and password
-        //        PetstoreAPI.sharedInstance.userName = "YOUR_USERNAME"
-        //        PetstoreAPI.sharedInstance.password = "YOUR_PASSWORD"
-        //
-        //        // API Key
-        //        PetstoreAPI.sharedInstance.apiKey = "API_KEY"
-        //
-        //        // OAuth Based
-        //        PetstoreAPI.sharedInstance.clientId = "CLIENT_ID"
-        //        PetstoreAPI.sharedInstance.clientSecret = "CLIENT_SECRET"
-        //        PetstoreAPI.sharedInstance.oAuthRedirectUri = "REDIRECT_URI"
         
         PetstoreAPI.sharedInstance.apiKey = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
         PetstoreAPI.sharedInstance.userName = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
@@ -70,7 +59,6 @@ class ViewController: UIViewController {
 //            print("Placed order!")
 //            //print(data ?? default value)
 //        }
-//        login()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -79,15 +67,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func login(){
-        if let oAuthImplicitObj: OAuthImplicit = PetstoreAPI.sharedInstance.getSpecificAuthenticator() {
-            if !oAuthImplicitObj.checkLogin() {
-                oAuthImplicitObj.loginUser()
-            } else {
-                oAuthImplicitObj.logoutUser()
-            }
-        }
-    }
+
     // Optional: Add a button in UI and configure tap event for this method
     @IBAction func login(_ sender: Any) {
         if let oAuthImplicitObj: OAuthExplicit = PetstoreAPI.sharedInstance.getSpecificAuthenticator() {
@@ -99,7 +79,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func loginOAuth(sender: Any) {
-        if let oAuthImplicitObj: OAuthImplicit = PetstoreAPI.sharedInstance.getSpecificAuthenticator() {
+        if let oAuthImplicitObj: OAuthApplication = PetstoreAPI.sharedInstance.getSpecificAuthenticator() {
             if !oAuthImplicitObj.checkLogin() {
                 oAuthImplicitObj.loginUser()
             } else {

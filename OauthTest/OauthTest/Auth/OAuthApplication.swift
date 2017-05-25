@@ -29,25 +29,37 @@ class OAuthApplication: OAuth {
             "scope": "resource.WRITE"
          ]
 
-        super.applyNonSecureForAlamofire()
-
-        // Make the request
-        _ =  AXAlamofire.request(self.oAuthTokenUrl, method: .post, parameters: postingJSON, encoding:  JSONEncoding.default, headers: nil).responseJSON { (response) in
-            switch response.result {
-            case .success(let tokenResult):
-                Logger.shared.debug(tokenResult)
-                let jsonResponse = tokenResult as! NSDictionary
-
-                if let theAccessToken = jsonResponse["access_token"] as? String {
-                    self.authToken = theAccessToken
-                    NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+        let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
+        print("Request Object:\(postingJSON)")
+        let url : String = self.oAuthTokenUrl
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.url = NSURL(string: url) as URL?
+        request.httpMethod = "POST"
+        //add params to request
+        request.httpBody = postingBody
+        let dataTask = session.dataTask(with: request as URLRequest) { (data:Data?, response:URLResponse?, error:Error?) -> Void in
+            if((error) != nil) {
+                print(error!.localizedDescription)
+            }else {
+                print("Succes:")
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    if let theAccessToken = parsedData["access_token"] as? String {
+                        self.authToken = theAccessToken
+                        print(theAccessToken)
+                        NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
+                    }
+                    
+                } catch let error as NSError {
+                    print(error)
+                    Logger.shared.error(error)
                 }
-                break
-            case .failure(let error):
-                Logger.shared.error(error)
-                break
+                
             }
-
         }
+        dataTask.resume()
     }
+    
 }

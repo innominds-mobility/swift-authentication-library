@@ -6,7 +6,7 @@ import UIKit
 
 // OAuth based authentication class. Handles OAuth based authentication
 
-class OAuth: Authentication {
+class OAuth: Authentication,URLSessionDelegate {
 
     /// Redirect url configured for OAuth authentication
     var redirectUri: String? = ""
@@ -150,59 +150,59 @@ class OAuth: Authentication {
         }
     }
 
-    /// Method that applies non secure changing for Alamofire
-    func applyNonSecureForAlamofire(connectionSession:URLSession) {
-        let manager = AXManager.default
-        manager.session = connectionSession
-
-        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-            print("::::::::::enter:::::::::")
-            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
-            var credential: URLCredential?
-
-            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                disposition = URLSession.AuthChallengeDisposition.useCredential
-                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-            } else {
-                if challenge.previousFailureCount > 0 {
-                    disposition = .cancelAuthenticationChallenge
-                } else {
-                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
-
-                    if credential != nil {
-                        disposition = .useCredential
-                    }
-                }
-            }
-
-            return (disposition, credential)
-        }
-    }
-    func applyNonSecureForAlamofire() {
-        let manager = AXManager.default
-        
-        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
-            var credential: URLCredential?
-            
-            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                disposition = URLSession.AuthChallengeDisposition.useCredential
-                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-            } else {
-                if challenge.previousFailureCount > 0 {
-                    disposition = .cancelAuthenticationChallenge
-                } else {
-                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
-                    
-                    if credential != nil {
-                        disposition = .useCredential
-                    }
-                }
-            }
-            
-            return (disposition, credential)
-        }
-    }
+//    /// Method that applies non secure changing for Alamofire
+//    func applyNonSecureForAlamofire(connectionSession:URLSession) {
+//        let manager = AXManager.default
+//        manager.session = connectionSession
+//
+//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
+//            print("::::::::::enter:::::::::")
+//            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+//            var credential: URLCredential?
+//
+//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+//                disposition = URLSession.AuthChallengeDisposition.useCredential
+//                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+//            } else {
+//                if challenge.previousFailureCount > 0 {
+//                    disposition = .cancelAuthenticationChallenge
+//                } else {
+//                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
+//
+//                    if credential != nil {
+//                        disposition = .useCredential
+//                    }
+//                }
+//            }
+//
+//            return (disposition, credential)
+//        }
+//    }
+//    func applyNonSecureForAlamofire() {
+//        let manager = AXManager.default
+//        
+//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
+//            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+//            var credential: URLCredential?
+//            
+//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+//                disposition = URLSession.AuthChallengeDisposition.useCredential
+//                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+//            } else {
+//                if challenge.previousFailureCount > 0 {
+//                    disposition = .cancelAuthenticationChallenge
+//                } else {
+//                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
+//                    
+//                    if credential != nil {
+//                        disposition = .useCredential
+//                    }
+//                }
+//            }
+//            
+//            return (disposition, credential)
+//        }
+//    }
 
     override func parseUrl(url: NSURL) {
         // Example:
@@ -281,5 +281,10 @@ class OAuth: Authentication {
         }
         
         return escaped
+    }
+    
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+        
     }
 }
