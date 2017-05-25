@@ -169,29 +169,40 @@ class OAuthPassword: OAuth {
             "format": "json"
         ]
 
-        AXAlamofire.request(self.oAuthTokenUrl,
-                            method: .post,
-                            parameters: postingJSON,
-                            encoding: URLEncoding.default,
-                            headers: nil).responseJSON { (response) in
-                                switch response.result {
-                                case .success(let tokenResult):
-                                    let jsonResponse = tokenResult as! NSDictionary
-                                    Logger.shared.debug(tokenResult)
-                                    if let theAccessToken = jsonResponse["access_token"] as? String {
-                                        self.authToken = theAccessToken
-                                    }
-                                    if let theRefreshToken = jsonResponse["refresh_token"] as? String {
-                                        self.refreshToken = theRefreshToken
-                                        completion(nil)
-                                    }
-                                    break
-                                case .failure(let error):
-                                    completion(error.localizedDescription)
-                                    Logger.shared.error(error)
-                                    break
-                                }
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+        let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
+        print("Request Object:\(postingJSON)")
+        let url : String = self.oAuthTokenUrl
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.url = NSURL(string: url) as URL?
+        request.httpMethod = "POST"
+        request.httpBody = postingBody
+        let dataTask = session.dataTask(with: request as URLRequest) { (data:Data?, response:URLResponse?, error:Error?) -> Void in
+            if((error) != nil) {
+                print(error!.localizedDescription)
+            }else {
+                print("Succes:")
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    if let theAccessToken = parsedData["access_token"] as? String {
+                        self.authToken = theAccessToken
+                        print(theAccessToken)
+                        NotificationCenter.default.post(name: NSNotification.Name.AuthNotification.didLogin, object: theAccessToken)
+                    }
+                    if let theRefreshToken = parsedData["refresh_token"] as? String {
+                        self.refreshToken = theRefreshToken
+                        print(theRefreshToken)
+                    }
+                    
+                } catch let error as NSError {
+                    print(error)
+                    Logger.shared.error(error)
+                }
+                
+            }
         }
+        dataTask.resume()
     }
 
     override func logoutUser() {
