@@ -104,23 +104,20 @@ class OAuthExplicit: OAuth,URLSessionDelegate {
         
        // super.applyNonSecureForAlamofire()
         
-        let theJSONData = try? JSONSerialization.data(
-            withJSONObject: postingJSON ,
-            options: JSONSerialization.WritingOptions(rawValue: 0))
-        let jsonString = NSString(data: theJSONData!,
-                                  encoding: String.Encoding.ascii.rawValue)
+       
+        
+        let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
         
         print("Request Object:\(postingJSON)")
-        print("Request string = \(jsonString!)")
+        
         
         let url : String = self.oAuthTokenUrl
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.url = NSURL(string: url) as URL?
         request.httpMethod = "POST"
-        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
     
         //add params to request
-        request.httpBody = jsonString!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion:true)
+        request.httpBody = postingBody//jsonString!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion:true)
 
         let dataTask = session.dataTask(with: request as URLRequest) { (data:Data?, response:URLResponse?, error:Error?) -> Void in
             if((error) != nil) {
