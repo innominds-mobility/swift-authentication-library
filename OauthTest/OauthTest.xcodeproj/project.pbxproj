@@ -35,23 +35,6 @@
 		004527DC1ED55EEF00EDBC34 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B21ED55EEE00EDBC34 /* Tag.swift */; };
 		004527DD1ED55EEF00EDBC34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B31ED55EEE00EDBC34 /* User.swift */; };
 		004527DE1ED55EEF00EDBC34 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B41ED55EEE00EDBC34 /* Models.swift */; };
-		004527DF1ED55EEF00EDBC34 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B61ED55EEE00EDBC34 /* AFError.swift */; };
-		004527E01ED55EEF00EDBC34 /* AXAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B71ED55EEE00EDBC34 /* AXAlamofire.swift */; };
-		004527E11ED55EEF00EDBC34 /* AXMultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B81ED55EEE00EDBC34 /* AXMultipartFormData.swift */; };
-		004527E21ED55EEF00EDBC34 /* AXNetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527B91ED55EEE00EDBC34 /* AXNetworkReachabilityManager.swift */; };
-		004527E31ED55EEF00EDBC34 /* AXParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BA1ED55EEE00EDBC34 /* AXParameterEncoding.swift */; };
-		004527E41ED55EEF00EDBC34 /* AXRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BB1ED55EEE00EDBC34 /* AXRequest.swift */; };
-		004527E51ED55EEF00EDBC34 /* AXResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BC1ED55EEE00EDBC34 /* AXResponse.swift */; };
-		004527E61ED55EEF00EDBC34 /* AXResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BD1ED55EEE00EDBC34 /* AXResponseSerialization.swift */; };
-		004527E71ED55EEF00EDBC34 /* AXResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BE1ED55EEE00EDBC34 /* AXResult.swift */; };
-		004527E81ED55EEF00EDBC34 /* AXServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527BF1ED55EEE00EDBC34 /* AXServerTrustPolicy.swift */; };
-		004527E91ED55EEF00EDBC34 /* AXSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C01ED55EEE00EDBC34 /* AXSessionDelegate.swift */; };
-		004527EA1ED55EEF00EDBC34 /* AXSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C11ED55EEE00EDBC34 /* AXSessionManager.swift */; };
-		004527EB1ED55EEF00EDBC34 /* AXTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C21ED55EEE00EDBC34 /* AXTaskDelegate.swift */; };
-		004527EC1ED55EEF00EDBC34 /* AXTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C31ED55EEE00EDBC34 /* AXTimeline.swift */; };
-		004527ED1ED55EEF00EDBC34 /* AXValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C41ED55EEE00EDBC34 /* AXValidation.swift */; };
-		004527EE1ED55EEF00EDBC34 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C51ED55EEE00EDBC34 /* DispatchQueue+Alamofire.swift */; };
-		004527EF1ED55EEF00EDBC34 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C61ED55EEE00EDBC34 /* Notifications.swift */; };
 		004527F01ED55EEF00EDBC34 /* AuthBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C81ED55EEE00EDBC34 /* AuthBrowserController.swift */; };
 		004527F11ED55EEF00EDBC34 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527C91ED55EEF00EDBC34 /* Logger.swift */; };
 /* End PBXBuildFile section */
@@ -108,23 +91,6 @@
 		004527B21ED55EEE00EDBC34 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		004527B31ED55EEE00EDBC34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		004527B41ED55EEE00EDBC34 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		004527B61ED55EEE00EDBC34 /* AFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
-		004527B71ED55EEE00EDBC34 /* AXAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXAlamofire.swift; sourceTree = "<group>"; };
-		004527B81ED55EEE00EDBC34 /* AXMultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXMultipartFormData.swift; sourceTree = "<group>"; };
-		004527B91ED55EEE00EDBC34 /* AXNetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXNetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		004527BA1ED55EEE00EDBC34 /* AXParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXParameterEncoding.swift; sourceTree = "<group>"; };
-		004527BB1ED55EEE00EDBC34 /* AXRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXRequest.swift; sourceTree = "<group>"; };
-		004527BC1ED55EEE00EDBC34 /* AXResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXResponse.swift; sourceTree = "<group>"; };
-		004527BD1ED55EEE00EDBC34 /* AXResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXResponseSerialization.swift; sourceTree = "<group>"; };
-		004527BE1ED55EEE00EDBC34 /* AXResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXResult.swift; sourceTree = "<group>"; };
-		004527BF1ED55EEE00EDBC34 /* AXServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXServerTrustPolicy.swift; sourceTree = "<group>"; };
-		004527C01ED55EEE00EDBC34 /* AXSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXSessionDelegate.swift; sourceTree = "<group>"; };
-		004527C11ED55EEE00EDBC34 /* AXSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXSessionManager.swift; sourceTree = "<group>"; };
-		004527C21ED55EEE00EDBC34 /* AXTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXTaskDelegate.swift; sourceTree = "<group>"; };
-		004527C31ED55EEE00EDBC34 /* AXTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXTimeline.swift; sourceTree = "<group>"; };
-		004527C41ED55EEE00EDBC34 /* AXValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXValidation.swift; sourceTree = "<group>"; };
-		004527C51ED55EEE00EDBC34 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		004527C61ED55EEE00EDBC34 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		004527C81ED55EEE00EDBC34 /* AuthBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBrowserController.swift; sourceTree = "<group>"; };
 		004527C91ED55EEF00EDBC34 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,7 +157,6 @@
 				004527AC1ED55EEE00EDBC34 /* Extensions.swift */,
 				004527AD1ED55EEE00EDBC34 /* Model */,
 				004527B41ED55EEE00EDBC34 /* Models.swift */,
-				004527B51ED55EEE00EDBC34 /* Networking */,
 				004527C71ED55EEE00EDBC34 /* Utils */,
 			);
 			path = OauthTest;
@@ -250,30 +215,6 @@
 				004527B31ED55EEE00EDBC34 /* User.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		004527B51ED55EEE00EDBC34 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				004527B61ED55EEE00EDBC34 /* AFError.swift */,
-				004527B71ED55EEE00EDBC34 /* AXAlamofire.swift */,
-				004527B81ED55EEE00EDBC34 /* AXMultipartFormData.swift */,
-				004527B91ED55EEE00EDBC34 /* AXNetworkReachabilityManager.swift */,
-				004527BA1ED55EEE00EDBC34 /* AXParameterEncoding.swift */,
-				004527BB1ED55EEE00EDBC34 /* AXRequest.swift */,
-				004527BC1ED55EEE00EDBC34 /* AXResponse.swift */,
-				004527BD1ED55EEE00EDBC34 /* AXResponseSerialization.swift */,
-				004527BE1ED55EEE00EDBC34 /* AXResult.swift */,
-				004527BF1ED55EEE00EDBC34 /* AXServerTrustPolicy.swift */,
-				004527C01ED55EEE00EDBC34 /* AXSessionDelegate.swift */,
-				004527C11ED55EEE00EDBC34 /* AXSessionManager.swift */,
-				004527C21ED55EEE00EDBC34 /* AXTaskDelegate.swift */,
-				004527C31ED55EEE00EDBC34 /* AXTimeline.swift */,
-				004527C41ED55EEE00EDBC34 /* AXValidation.swift */,
-				004527C51ED55EEE00EDBC34 /* DispatchQueue+Alamofire.swift */,
-				004527C61ED55EEE00EDBC34 /* Notifications.swift */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		004527C71ED55EEE00EDBC34 /* Utils */ = {
@@ -419,48 +360,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				004527EF1ED55EEF00EDBC34 /* Notifications.swift in Sources */,
 				004527F01ED55EEF00EDBC34 /* AuthBrowserController.swift in Sources */,
 				004527D61ED55EEF00EDBC34 /* OAuthPassword.swift in Sources */,
-				004527E71ED55EEF00EDBC34 /* AXResult.swift in Sources */,
-				004527E31ED55EEF00EDBC34 /* AXParameterEncoding.swift in Sources */,
-				004527E21ED55EEF00EDBC34 /* AXNetworkReachabilityManager.swift in Sources */,
-				004527E61ED55EEF00EDBC34 /* AXResponseSerialization.swift in Sources */,
 				004527CE1ED55EEF00EDBC34 /* ApiKeyAuth.swift in Sources */,
-				004527EE1ED55EEF00EDBC34 /* DispatchQueue+Alamofire.swift in Sources */,
-				004527EA1ED55EEF00EDBC34 /* AXSessionManager.swift in Sources */,
 				004527CB1ED55EEF00EDBC34 /* APIHelper.swift in Sources */,
 				004527DC1ED55EEF00EDBC34 /* Tag.swift in Sources */,
 				004527DA1ED55EEF00EDBC34 /* Order.swift in Sources */,
 				004527CA1ED55EEF00EDBC34 /* AlamofireImplementations.swift in Sources */,
-				004527E91ED55EEF00EDBC34 /* AXSessionDelegate.swift in Sources */,
-				004527E81ED55EEF00EDBC34 /* AXServerTrustPolicy.swift in Sources */,
 				004527DB1ED55EEF00EDBC34 /* Pet.swift in Sources */,
-				004527EB1ED55EEF00EDBC34 /* AXTaskDelegate.swift in Sources */,
 				004527CC1ED55EEF00EDBC34 /* DefaultAPI.swift in Sources */,
 				004527D91ED55EEF00EDBC34 /* Category.swift in Sources */,
 				004527D01ED55EEF00EDBC34 /* HTTPBasicAuth.swift in Sources */,
-				004527EC1ED55EEF00EDBC34 /* AXTimeline.swift in Sources */,
 				004527DD1ED55EEF00EDBC34 /* User.swift in Sources */,
 				004527DE1ED55EEF00EDBC34 /* Models.swift in Sources */,
 				004527721ED55EB500EDBC34 /* ViewController.swift in Sources */,
 				004527F11ED55EEF00EDBC34 /* Logger.swift in Sources */,
 				004527D51ED55EEF00EDBC34 /* OAuthImplicit.swift in Sources */,
 				004527D21ED55EEF00EDBC34 /* OAuth.swift in Sources */,
-				004527E51ED55EEF00EDBC34 /* AXResponse.swift in Sources */,
 				004527CD1ED55EEF00EDBC34 /* APIs.swift in Sources */,
 				004527D81ED55EEF00EDBC34 /* ApiResponse.swift in Sources */,
-				004527DF1ED55EEF00EDBC34 /* AFError.swift in Sources */,
-				004527E01ED55EEF00EDBC34 /* AXAlamofire.swift in Sources */,
-				004527ED1ED55EEF00EDBC34 /* AXValidation.swift in Sources */,
 				004527701ED55EB500EDBC34 /* AppDelegate.swift in Sources */,
 				004527D71ED55EEF00EDBC34 /* Extensions.swift in Sources */,
-				004527E11ED55EEF00EDBC34 /* AXMultipartFormData.swift in Sources */,
 				004527CF1ED55EEF00EDBC34 /* Authentication.swift in Sources */,
 				004527D41ED55EEF00EDBC34 /* OAuthExplicit.swift in Sources */,
 				004527D31ED55EEF00EDBC34 /* OAuthApplication.swift in Sources */,
 				004527D11ED55EEF00EDBC34 /* Keychain.swift in Sources */,
-				004527E41ED55EEF00EDBC34 /* AXRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +631,7 @@
 				004527961ED55EB600EDBC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		004527971ED55EB600EDBC34 /* Build configuration list for PBXNativeTarget "OauthTestTests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +640,7 @@
 				004527991ED55EB600EDBC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0045279A1ED55EB600EDBC34 /* Build configuration list for PBXNativeTarget "OauthTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -723,6 +649,7 @@
 				0045279C1ED55EB600EDBC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
