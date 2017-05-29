@@ -14,7 +14,6 @@
 		0045277A1ED55EB500EDBC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004527781ED55EB500EDBC34 /* LaunchScreen.storyboard */; };
 		004527851ED55EB500EDBC34 /* OauthTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527841ED55EB500EDBC34 /* OauthTestTests.swift */; };
 		004527901ED55EB500EDBC34 /* OauthTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045278F1ED55EB500EDBC34 /* OauthTestUITests.swift */; };
-		004527CB1ED55EEF00EDBC34 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045279E1ED55EEE00EDBC34 /* APIHelper.swift */; };
 		004527CE1ED55EEF00EDBC34 /* ApiKeyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527A31ED55EEE00EDBC34 /* ApiKeyAuth.swift */; };
 		004527CF1ED55EEF00EDBC34 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527A41ED55EEE00EDBC34 /* Authentication.swift */; };
 		004527D01ED55EEF00EDBC34 /* HTTPBasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004527A51ED55EEE00EDBC34 /* HTTPBasicAuth.swift */; };
@@ -60,7 +59,6 @@
 		0045278B1ED55EB500EDBC34 /* OauthTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OauthTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045278F1ED55EB500EDBC34 /* OauthTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTestUITests.swift; sourceTree = "<group>"; };
 		004527911ED55EB500EDBC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0045279E1ED55EEE00EDBC34 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		004527A31ED55EEE00EDBC34 /* ApiKeyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyAuth.swift; sourceTree = "<group>"; };
 		004527A41ED55EEE00EDBC34 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		004527A51ED55EEE00EDBC34 /* HTTPBasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBasicAuth.swift; sourceTree = "<group>"; };
@@ -129,11 +127,8 @@
 				004527761ED55EB500EDBC34 /* Assets.xcassets */,
 				004527781ED55EB500EDBC34 /* LaunchScreen.storyboard */,
 				0045277B1ED55EB500EDBC34 /* Info.plist */,
-				00E8F9951ED7FE2400E94C80 /* NetworkAdapter.swift */,
-				0045279E1ED55EEE00EDBC34 /* APIHelper.swift */,
-				0045279F1ED55EEE00EDBC34 /* APIs */,
+				00DF0D5B1EDBEC610046071B /* API */,
 				004527A21ED55EEE00EDBC34 /* Auth */,
-				004527AD1ED55EEE00EDBC34 /* Model */,
 				004527C71ED55EEE00EDBC34 /* Utils */,
 			);
 			path = OauthTest;
@@ -157,13 +152,6 @@
 			path = OauthTestUITests;
 			sourceTree = "<group>";
 		};
-		0045279F1ED55EEE00EDBC34 /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIs;
-			sourceTree = "<group>";
-		};
 		004527A21ED55EEE00EDBC34 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,13 +168,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		004527AD1ED55EEE00EDBC34 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		004527C71ED55EEE00EDBC34 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +175,14 @@
 				004527C91ED55EEF00EDBC34 /* Logger.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		00DF0D5B1EDBEC610046071B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				00E8F9951ED7FE2400E94C80 /* NetworkAdapter.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +323,6 @@
 				004527D61ED55EEF00EDBC34 /* OAuthPassword.swift in Sources */,
 				00E8F9961ED7FE2400E94C80 /* NetworkAdapter.swift in Sources */,
 				004527CE1ED55EEF00EDBC34 /* ApiKeyAuth.swift in Sources */,
-				004527CB1ED55EEF00EDBC34 /* APIHelper.swift in Sources */,
 				004527D01ED55EEF00EDBC34 /* HTTPBasicAuth.swift in Sources */,
 				004527721ED55EB500EDBC34 /* ViewController.swift in Sources */,
 				004527F11ED55EEF00EDBC34 /* Logger.swift in Sources */,
