@@ -126,14 +126,13 @@ class AuthBrowserController: UIViewController, WKNavigationDelegate {
                 }
                 if let query = url.query {
                     let cleandQuery = query.components(separatedBy: "?")[0]
-                    let param = cleandQuery.components(separatedBy: "=")[0]
-                    let value = cleandQuery.components(separatedBy: "=")[1]
-                    Logger.shared.debug("Code received \(value)")
-                    if param == "code" {
-                        if let confReceive = self.onAnswerReceive {
-                            confReceive(value, false)
-                        }
+                    // returns code=huhusf&state=sfuisf&... Need to get the value
+                    
+                    if let confCode = self.extractCode(from: cleandQuery){
+                        Logger.shared.debug("Code received \(confCode)")
+                        self.onAnswerReceive?(confCode,false)
                     }
+                    
                 }
                 self.dismissAuthDialog()
                 return false
@@ -141,4 +140,28 @@ class AuthBrowserController: UIViewController, WKNavigationDelegate {
         }
         return true
     }
+    
+    
+    /// Extracts code from the query string
+    /// Eg. state=&code=58f7e1a31ea011e28ef00003f86d6e8d2ff6521d
+    /// Should return `58f7e1a31ea011e28ef00003f86d6e8d2ff6521d`
+    ///
+    /// - Parameter query: Query as got from server
+    /// - Returns: Optional code which may or maynot exist
+    func extractCode(from query: String)-> String? {
+        
+        let allSeparates = query.components(separatedBy: "&") // state= , code=sdfsdf3
+        for singleQuery in allSeparates{
+            let components = singleQuery.components(separatedBy: "=")
+            if(components.count == 2){
+                if components[0] == "code"{
+                    return components[1]
+            }
+        }
+        
+        
+    }
+        return nil
+    }
+    
 }

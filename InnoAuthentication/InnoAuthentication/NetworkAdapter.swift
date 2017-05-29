@@ -11,9 +11,9 @@ import InnoAuth
 
 class NetworkAPI {
     
-    public var basePath = "https://52.18.176.25:8065/mixed"
+    
     public var doNotValidateCertificates = false
-    public var credential: URLCredential?
+    
     public var customHeaders: [String: String] = [:]
     
     
@@ -21,9 +21,9 @@ class NetworkAPI {
         "API Key": ApiKeyAuth(location: "header", paramName: "KeyId"),
         "HTTP Basic": HTTPBasicAuth(),
         
-        "OAuthAccessCode": OAuthImplicit("https://www.mapmyfitness.com/v7.1/oauth2/authorize/", scopes: nil, tokenUrl: "https://api.mapmyfitness.com/v7.1/oauth2/access_token/"),
+        "Instagram": OAuthImplicit("https://api.instagram.com/oauth/authorize", scopes: nil, tokenUrl: "https://api.mapmyfitness.com/v7.1/oauth2/access_token/"),
 
-        "OAuthImplicit": OAuthExplicit("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ"),
+        "MapMyFitness Explicit": OAuthExplicit("https://www.mapmyfitness.com/v7.1/oauth2/authorize/", scopes: nil, tokenUrl: "https://api.mapmyfitness.com/v7.1/oauth2/access_token/"),
         "OAuthApplication": OAuthApplication("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token"),
         "OAuthPassword": OAuthPassword("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token")
         
@@ -210,6 +210,19 @@ class NetworkAPI {
             return nil
         }
     }
+    
+    
+    /// Gives out headers for a specific authenticator
+    ///
+    /// - Parameter name: name of the authenticator. You can get this from
+    /// authenticators member of the same class
+    func getHeaders(for name:String) -> [String: String]{
+        if let authenti = authenticators[name]{
+                return authenti.authHeaders
+        }
+        return [:]
+    }
+    
     
     /// Generic function that returns a specific type of
     /// authenticator based on type of object.
