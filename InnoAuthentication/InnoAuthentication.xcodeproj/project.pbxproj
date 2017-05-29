@@ -12,7 +12,46 @@
 		D8D7F47E1EDC3DE6004B113B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D7F47C1EDC3DE6004B113B /* Main.storyboard */; };
 		D8D7F4801EDC3DE6004B113B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D7F47F1EDC3DE6004B113B /* Assets.xcassets */; };
 		D8D7F4831EDC3DE6004B113B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D7F4811EDC3DE6004B113B /* LaunchScreen.storyboard */; };
+		D8D7F4931EDC3E3B004B113B /* InnoAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D7F4911EDC3E3B004B113B /* InnoAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D7F4961EDC3E3B004B113B /* InnoAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D7F48F1EDC3E3B004B113B /* InnoAuth.framework */; };
+		D8D7F4971EDC3E3B004B113B /* InnoAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8D7F48F1EDC3E3B004B113B /* InnoAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8D7F4A61EDC3E51004B113B /* ApiKeyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F49D1EDC3E51004B113B /* ApiKeyAuth.swift */; };
+		D8D7F4A71EDC3E51004B113B /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F49E1EDC3E51004B113B /* Authentication.swift */; };
+		D8D7F4A81EDC3E51004B113B /* HTTPBasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F49F1EDC3E51004B113B /* HTTPBasicAuth.swift */; };
+		D8D7F4A91EDC3E51004B113B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A01EDC3E51004B113B /* Keychain.swift */; };
+		D8D7F4AA1EDC3E51004B113B /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A11EDC3E51004B113B /* OAuth.swift */; };
+		D8D7F4AB1EDC3E51004B113B /* OAuthApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A21EDC3E51004B113B /* OAuthApplication.swift */; };
+		D8D7F4AC1EDC3E51004B113B /* OAuthExplicit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A31EDC3E51004B113B /* OAuthExplicit.swift */; };
+		D8D7F4AD1EDC3E51004B113B /* OAuthImplicit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A41EDC3E51004B113B /* OAuthImplicit.swift */; };
+		D8D7F4AE1EDC3E51004B113B /* OAuthPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4A51EDC3E51004B113B /* OAuthPassword.swift */; };
+		D8D7F4B21EDC3E65004B113B /* AuthBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B01EDC3E65004B113B /* AuthBrowserController.swift */; };
+		D8D7F4B31EDC3E65004B113B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B11EDC3E65004B113B /* Logger.swift */; };
+		D8D7F4B51EDC3F24004B113B /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8D7F4941EDC3E3B004B113B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8D7F46D1EDC3DE6004B113B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8D7F48E1EDC3E3B004B113B;
+			remoteInfo = InnoAuth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8D7F49B1EDC3E3B004B113B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8D7F4971EDC3E3B004B113B /* InnoAuth.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D8D7F4751EDC3DE6004B113B /* InnoAuthentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoAuthentication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +61,33 @@
 		D8D7F47F1EDC3DE6004B113B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8D7F4821EDC3DE6004B113B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8D7F4841EDC3DE6004B113B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8D7F48F1EDC3E3B004B113B /* InnoAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InnoAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D7F4911EDC3E3B004B113B /* InnoAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnoAuth.h; sourceTree = "<group>"; };
+		D8D7F4921EDC3E3B004B113B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8D7F49D1EDC3E51004B113B /* ApiKeyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyAuth.swift; sourceTree = "<group>"; };
+		D8D7F49E1EDC3E51004B113B /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		D8D7F49F1EDC3E51004B113B /* HTTPBasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBasicAuth.swift; sourceTree = "<group>"; };
+		D8D7F4A01EDC3E51004B113B /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		D8D7F4A11EDC3E51004B113B /* OAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		D8D7F4A21EDC3E51004B113B /* OAuthApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthApplication.swift; sourceTree = "<group>"; };
+		D8D7F4A31EDC3E51004B113B /* OAuthExplicit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExplicit.swift; sourceTree = "<group>"; };
+		D8D7F4A41EDC3E51004B113B /* OAuthImplicit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthImplicit.swift; sourceTree = "<group>"; };
+		D8D7F4A51EDC3E51004B113B /* OAuthPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthPassword.swift; sourceTree = "<group>"; };
+		D8D7F4B01EDC3E65004B113B /* AuthBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBrowserController.swift; sourceTree = "<group>"; };
+		D8D7F4B11EDC3E65004B113B /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D8D7F4721EDC3DE6004B113B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7F4961EDC3E3B004B113B /* InnoAuth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D7F48B1EDC3E3B004B113B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				D8D7F4771EDC3DE6004B113B /* InnoAuthentication */,
+				D8D7F4901EDC3E3B004B113B /* InnoAuth */,
 				D8D7F4761EDC3DE6004B113B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D8D7F4751EDC3DE6004B113B /* InnoAuthentication.app */,
+				D8D7F48F1EDC3E3B004B113B /* InnoAuth.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +118,7 @@
 		D8D7F4771EDC3DE6004B113B /* InnoAuthentication */ = {
 			isa = PBXGroup;
 			children = (
+				D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */,
 				D8D7F4781EDC3DE6004B113B /* AppDelegate.swift */,
 				D8D7F47A1EDC3DE6004B113B /* ViewController.swift */,
 				D8D7F47C1EDC3DE6004B113B /* Main.storyboard */,
@@ -64,7 +129,54 @@
 			path = InnoAuthentication;
 			sourceTree = "<group>";
 		};
+		D8D7F4901EDC3E3B004B113B /* InnoAuth */ = {
+			isa = PBXGroup;
+			children = (
+				D8D7F4AF1EDC3E59004B113B /* Util */,
+				D8D7F49C1EDC3E47004B113B /* Auth */,
+				D8D7F4911EDC3E3B004B113B /* InnoAuth.h */,
+				D8D7F4921EDC3E3B004B113B /* Info.plist */,
+			);
+			path = InnoAuth;
+			sourceTree = "<group>";
+		};
+		D8D7F49C1EDC3E47004B113B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D8D7F49D1EDC3E51004B113B /* ApiKeyAuth.swift */,
+				D8D7F49E1EDC3E51004B113B /* Authentication.swift */,
+				D8D7F49F1EDC3E51004B113B /* HTTPBasicAuth.swift */,
+				D8D7F4A01EDC3E51004B113B /* Keychain.swift */,
+				D8D7F4A11EDC3E51004B113B /* OAuth.swift */,
+				D8D7F4A21EDC3E51004B113B /* OAuthApplication.swift */,
+				D8D7F4A31EDC3E51004B113B /* OAuthExplicit.swift */,
+				D8D7F4A41EDC3E51004B113B /* OAuthImplicit.swift */,
+				D8D7F4A51EDC3E51004B113B /* OAuthPassword.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		D8D7F4AF1EDC3E59004B113B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D8D7F4B01EDC3E65004B113B /* AuthBrowserController.swift */,
+				D8D7F4B11EDC3E65004B113B /* Logger.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D8D7F48C1EDC3E3B004B113B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7F4931EDC3E3B004B113B /* InnoAuth.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D8D7F4741EDC3DE6004B113B /* InnoAuthentication */ = {
@@ -74,15 +186,35 @@
 				D8D7F4711EDC3DE6004B113B /* Sources */,
 				D8D7F4721EDC3DE6004B113B /* Frameworks */,
 				D8D7F4731EDC3DE6004B113B /* Resources */,
+				D8D7F49B1EDC3E3B004B113B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D8D7F4951EDC3E3B004B113B /* PBXTargetDependency */,
 			);
 			name = InnoAuthentication;
 			productName = InnoAuthentication;
 			productReference = D8D7F4751EDC3DE6004B113B /* InnoAuthentication.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D8D7F48E1EDC3E3B004B113B /* InnoAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8D7F4981EDC3E3B004B113B /* Build configuration list for PBXNativeTarget "InnoAuth" */;
+			buildPhases = (
+				D8D7F48A1EDC3E3B004B113B /* Sources */,
+				D8D7F48B1EDC3E3B004B113B /* Frameworks */,
+				D8D7F48C1EDC3E3B004B113B /* Headers */,
+				D8D7F48D1EDC3E3B004B113B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InnoAuth;
+			productName = InnoAuth;
+			productReference = D8D7F48F1EDC3E3B004B113B /* InnoAuth.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -97,6 +229,12 @@
 					D8D7F4741EDC3DE6004B113B = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 3PVLLN695R;
+						ProvisioningStyle = Automatic;
+					};
+					D8D7F48E1EDC3E3B004B113B = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 3PVLLN695R;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -115,6 +253,7 @@
 			projectRoot = "";
 			targets = (
 				D8D7F4741EDC3DE6004B113B /* InnoAuthentication */,
+				D8D7F48E1EDC3E3B004B113B /* InnoAuth */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +269,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8D7F48D1EDC3E3B004B113B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +283,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D7F4B51EDC3F24004B113B /* NetworkAdapter.swift in Sources */,
 				D8D7F47B1EDC3DE6004B113B /* ViewController.swift in Sources */,
 				D8D7F4791EDC3DE6004B113B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8D7F48A1EDC3E3B004B113B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D7F4B21EDC3E65004B113B /* AuthBrowserController.swift in Sources */,
+				D8D7F4B31EDC3E65004B113B /* Logger.swift in Sources */,
+				D8D7F4A61EDC3E51004B113B /* ApiKeyAuth.swift in Sources */,
+				D8D7F4AC1EDC3E51004B113B /* OAuthExplicit.swift in Sources */,
+				D8D7F4AD1EDC3E51004B113B /* OAuthImplicit.swift in Sources */,
+				D8D7F4AE1EDC3E51004B113B /* OAuthPassword.swift in Sources */,
+				D8D7F4A91EDC3E51004B113B /* Keychain.swift in Sources */,
+				D8D7F4A81EDC3E51004B113B /* HTTPBasicAuth.swift in Sources */,
+				D8D7F4A71EDC3E51004B113B /* Authentication.swift in Sources */,
+				D8D7F4AB1EDC3E51004B113B /* OAuthApplication.swift in Sources */,
+				D8D7F4AA1EDC3E51004B113B /* OAuth.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8D7F4951EDC3E3B004B113B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8D7F48E1EDC3E3B004B113B /* InnoAuth */;
+			targetProxy = D8D7F4941EDC3E3B004B113B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8D7F47C1EDC3DE6004B113B /* Main.storyboard */ = {
@@ -260,6 +433,7 @@
 		D8D7F4881EDC3DE6004B113B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PVLLN695R;
 				INFOPLIST_FILE = InnoAuthentication/Info.plist;
@@ -273,6 +447,7 @@
 		D8D7F4891EDC3DE6004B113B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PVLLN695R;
 				INFOPLIST_FILE = InnoAuthentication/Info.plist;
@@ -280,6 +455,55 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.InnoAuthentication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D8D7F4991EDC3E3B004B113B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3PVLLN695R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InnoAuth/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.InnoAuth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D8D7F49A1EDC3E3B004B113B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3PVLLN695R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InnoAuth/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.InnoAuth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -300,6 +524,14 @@
 			buildConfigurations = (
 				D8D7F4881EDC3DE6004B113B /* Debug */,
 				D8D7F4891EDC3DE6004B113B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8D7F4981EDC3E3B004B113B /* Build configuration list for PBXNativeTarget "InnoAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8D7F4991EDC3E3B004B113B /* Debug */,
+				D8D7F49A1EDC3E3B004B113B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
