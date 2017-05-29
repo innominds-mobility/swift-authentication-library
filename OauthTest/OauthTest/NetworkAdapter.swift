@@ -20,8 +20,10 @@ class NetworkAPI {
     public let authenticators: [String: Authentication] =  [
         "API Key": ApiKeyAuth(location: "header", paramName: "KeyId"),
         "HTTP Basic": HTTPBasicAuth(),
-        "OAuthAccessCode": OAuthExplicit("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token"),
-        "OAuthImplicit": OAuthImplicit("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ"),
+        
+        "OAuthAccessCode": OAuthImplicit("https://www.mapmyfitness.com/v7.1/oauth2/authorize/", scopes: nil, tokenUrl: "https://api.mapmyfitness.com/v7.1/oauth2/access_token/"),
+
+        "OAuthImplicit": OAuthExplicit("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ"),
         "OAuthApplication": OAuthApplication("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token"),
         "OAuthPassword": OAuthPassword("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token")
         
@@ -38,6 +40,9 @@ class NetworkAPI {
     public func setLoggerLevel(level: LogLevel) {
         Logger.shared.level = level
     }
+    
+    
+//    "OAuthAccessCode": OAuthExplicit("https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/authorize", scopes: "resource.WRITE,resource.READ", tokenUrl: "https://ec2-52-18-176-25.eu-west-1.compute.amazonaws.com:8089/api/oauth/token"),
     
     /// Making init private for singleton
     private init() {}

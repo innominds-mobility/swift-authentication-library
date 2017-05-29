@@ -71,6 +71,7 @@ class AuthBrowserController: UIViewController, WKNavigationDelegate {
         _ = self.checkSchemeAndDetails(url: request.url! as NSURL)
         
         decisionHandler(.allow)
+        Logger.shared.debug("trying to go to \(request.url?.absoluteString)")
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -100,9 +101,12 @@ class AuthBrowserController: UIViewController, WKNavigationDelegate {
 
     func checkSchemeAndDetails(url: NSURL) -> Bool {
         Logger.shared.info("Checking for scheme \(String(describing: url.scheme))")
-        if let urlScheme = url.scheme {
+        // check for the url and #access_token fragment
+        if let urlScheme = url.scheme, let host = url.host, let path = url.path {
+            // construct the absoulte url
+            let absUrl = urlScheme+"://"+host+path
             // Check if this belongs to what we are looking for
-            if urlScheme == self.redirectScheme! { 
+            if urlScheme == self.redirectScheme!  || absUrl == self.redirectScheme! {
                 // Parse the fragment and get the details
                 if let fragment = url.fragment {
                     Logger.shared.info(fragment)

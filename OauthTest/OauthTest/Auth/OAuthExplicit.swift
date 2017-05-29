@@ -12,7 +12,7 @@ class OAuthExplicit: OAuth {
                 scopesString = confScopes
             }
             
-            return "\(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)://&response_type=code&scope=\(scopesString)"
+            return "\(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)&response_type=code&scope=\(scopesString)"
         }
     }
 

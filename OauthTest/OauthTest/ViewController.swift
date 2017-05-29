@@ -12,17 +12,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        NetworkAPI.sharedInstance.apiKey = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
+//        NetworkAPI.sharedInstance.userName = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
+//        NetworkAPI.sharedInstance.password = "3722008e-c98a-425a-afcb-ff968cc1f66f"
+//        NetworkAPI.sharedInstance.clientId = "9daf21f4-0189-4f33-b98d-f64c0c1d2c00"
+//        NetworkAPI.sharedInstance.clientSecret = "8d49168b-668d-4ed5-b637-b542e134154e"
+//        NetworkAPI.sharedInstance.oAuthRedirectUri = "axwaysample"
+        
         
         NetworkAPI.sharedInstance.apiKey = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
-        NetworkAPI.sharedInstance.userName = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
-        NetworkAPI.sharedInstance.password = "3722008e-c98a-425a-afcb-ff968cc1f66f"
-        NetworkAPI.sharedInstance.clientId = "9daf21f4-0189-4f33-b98d-f64c0c1d2c00"
-        NetworkAPI.sharedInstance.clientSecret = "8d49168b-668d-4ed5-b637-b542e134154e"
-        NetworkAPI.sharedInstance.doNotValidateCertificates = true
-        NetworkAPI.sharedInstance.oAuthRedirectUri = "axwaysample"
+        //NetworkAPI.sharedInstance.userName = "750aac66-dba7-4dd8-aba2-ddaf4b8cccd7"
+        //NetworkAPI.sharedInstance.password = "3722008e-c98a-425a-afcb-ff968cc1f66f"
+        NetworkAPI.sharedInstance.clientId = "xw92pcw8uarmj5dx6qw2zntt8mpzkcf3"
+        NetworkAPI.sharedInstance.clientSecret = "YS5efKsvTAtnTj2WP6ATuF4WSFsUjWXNkMBD9K7zVXg"
+        NetworkAPI.sharedInstance.oAuthRedirectUri = "http://oauth.innominds.com/callback"
+        print("oAuthRedirectUri : \(String(describing: NetworkAPI.sharedInstance.oAuthRedirectUri)) ");
+        
+        
+        
         
         NetworkAPI.sharedInstance.useInAppBrowser = true
-        
+        NetworkAPI.sharedInstance.doNotValidateCertificates = true
+
         // To ignore SSL warnings
         NetworkAPI.sharedInstance.doNotValidateCertificates = true
         // Add observer for successful login on 3-legged authentication (OAuth)
@@ -70,7 +82,7 @@ class ViewController: UIViewController {
 
     // Optional: Add a button in UI and configure tap event for this method
     @IBAction func login(_ sender: Any) {
-        if let oAuthImplicitObj: OAuthExplicit = NetworkAPI.sharedInstance.getSpecificAuthenticator() {
+        if let oAuthImplicitObj: OAuthImplicit = NetworkAPI.sharedInstance.getSpecificAuthenticator() {
             if !oAuthImplicitObj.checkLogin() {
                 oAuthImplicitObj.loginUser()
             } else {

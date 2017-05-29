@@ -68,9 +68,11 @@ class OAuth: Authentication,URLSessionDelegate {
             var scopesString = ""
             if let confScopes = self.scopes {
                 scopesString = confScopes
+                return "\(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)&response_type=token&scope=\(scopesString)"
             }
-            print("url formation : \(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)://&response_type=token&scope=\(scopesString)")
-            return "\(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)://&response_type=token&scope=\(scopesString)"
+            print("url formation : \(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)&response_type=token&scope=\(scopesString)")
+            return "\(self.authUrl!)?client_id=\(self.clientId!)&redirect_uri=\(self.redirectUri!)&response_type=token"
+            
         }
     }
 
