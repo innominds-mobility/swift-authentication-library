@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/innominds-mobility/swift-authentication-library"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ApiKeyAuth.html">ApiKeyAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/HTTPBasicAuth.html">HTTPBasicAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuth.html">OAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuthApplication.html">OAuthApplication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuthExplicit.html">OAuthExplicit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuthImplicit.html">OAuthImplicit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuthPassword.html">OAuthPassword</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/LogLevel.html">LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSNotification.html">NSNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSNotification/AuthNotification.html">– AuthNotification</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#swift-authentication-library' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='swift-authentication-library'>swift-authentication-library</h1>
+
+<p>Authentication library to handle different types of authentications.</p>
+
+<p>Currently the library supports the following authentication mechanisms</p>
+
+<ul>
+<li>HTTP BASIC</li>
+<li>API KEY</li>
+<li>OAuth Implicit</li>
+<li>OAuth Explicit</li>
+<li>OAuth Application</li>
+<li>OAuth Password</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='installation'>Installation</h1>
+<a href='#manual' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='manual'>Manual</h2>
+
+<p>Download all the files from the folder <code>InnoAuth</code> . This folder is located in <code>InnoAuthentication</code> folder that is present in the root folder of the project.
+Drag and drop all the files from <code>InnoAuth</code> folder into your project.</p>
+<a href='#framework' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='framework'>Framework</h2>
+
+<p>We intend to support giving out a framework as is but it is currently in progress. If you wish to look at the current
+framework structure, download the source and you will be able to see it as a part of the project <code>InnoAuthentication</code></p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='usage'>Usage</h1>
+
+<p>The framework offers different classes for different authentications. You can create instance of a single authentication object or handle multiple authentications in your application using a container. </p>
+<a href='#single-site-authentication' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='single-site-authentication'>Single site authentication</h2>
+
+<p><code>Authentication</code> is the base class for all the authentication types. </p>
+
+<table><thead>
+<tr>
+<th>Functionality</th>
+<th>Method name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Check user is logged in</td>
+<td><code>checkLogin()</code></td>
+</tr>
+<tr>
+<td>Login User</td>
+<td><code>loginUser()</code></td>
+</tr>
+<tr>
+<td>Logout User</td>
+<td><code>logoutUser()</code></td>
+</tr>
+<tr>
+<td>Refresh token (specific to oAuth)</td>
+<td><code>refreshAccessToken</code></td>
+</tr>
+<tr>
+<td>Get access token (specific to oAuth)</td>
+<td><code>accessToken</code></td>
+</tr>
+</tbody></table>
+<a href='#configuring-authentication-objects' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='configuring-authentication-objects'>Configuring Authentication objects</h3>
+<a href='#http-basic' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='http-basic'>HTTP BASIC</h4>
+
+<p>Supply the user name and password 
+<code>swift
+let basicAuth = HTTPBasicAuth()
+basicAuth.basicAuthPassword = &quot;USERNAME&quot;
+basicAuth.basicAuthUsername = &quot;PASSWORD&quot;
+</code></p>
+<a href='#api-key' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='api-key'>API Key</h4>
+
+<p>Supply the APIKey
+<code>swift
+let apiKeyAuth = ApiKeyAuth()
+apiKeyAuth.apiKey = &quot;YOUR API KEY&quot;
+</code></p>
+<a href='#oauth' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='oauth'>OAuth</h4>
+
+<p>OAuth authentication will need the following parameters for authentication</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client ID</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+</tr>
+<tr>
+<td>Redirect URI</td>
+</tr>
+<tr>
+<td>Authorization URL</td>
+</tr>
+<tr>
+<td>Token URL (for Explicit only)</td>
+</tr>
+<tr>
+<td>Refresh token URL (for Explicit)</td>
+</tr>
+</tbody></table>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">oAuthExplicit</span> <span class="o">=</span> <span class="kt">OAuthExplicit</span><span class="p">(</span><span class="s">"AUTHORIZE_URL"</span><span class="p">,</span> <span class="nv">scopes</span><span class="p">:</span> <span class="s">"SCOPES(optional)"</span><span class="p">,</span> <span class="nv">tokenUrl</span><span class="p">:</span> <span class="s">"TOKENURL"</span><span class="p">)</span>
+<span class="n">oAuthExplicit</span><span class="o">.</span><span class="n">clientID</span> <span class="o">=</span> <span class="s">"CLIENTID"</span>
+<span class="n">oAuthExplicit</span><span class="o">.</span><span class="n">clientSecret</span> <span class="o">=</span> <span class="s">"CLIENT_SECRET"</span>
+<span class="n">oAuthExplicit</span><span class="o">.</span><span class="n">redirectUri</span> <span class="o">=</span> <span class="s">"REDIRECT_URI"</span> <span class="c1">// String</span>
+</code></pre>
+<a href='#user-login-status-change' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='user-login-status-change'>User login status change.</h5>
+
+<p>The library offers two notifications for change in user login state (especially in oAuth).
+<code>swift
+NSNotification.Name.AuthNotification.didLogin // on login successful . Send accesstoken in notification object
+NSNotification.Name.AuthNotification.failedLogin // on login fail
+</code></p>
+<pre class="highlight swift"><code><span class="kt">NotificationCenter</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">ViewController.loginSuccess</span><span class="kd">)</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="o">.</span><span class="kt">Name</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="s">"AuthNotificationDidLogin"</span><span class="p">),</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kt">NotificationCenter</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">ViewController.loginFailed</span><span class="kd">)</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="o">.</span><span class="kt">Name</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="s">"AuthNotificationFailedLogin"</span><span class="p">),</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">loginSuccess</span><span class="p">()</span> <span class="p">{</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Logged in successfully"</span><span class="p">)</span>
+<span class="c1">// Optional: API Calls can be done now, For sample we have done it request data button click.</span>
+
+<span class="p">}</span>
+
+<span class="c1">// Method to handle the failed login</span>
+<span class="kd">func</span> <span class="nf">loginFailed</span><span class="p">()</span> <span class="p">{</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Login has failed"</span><span class="p">)</span>
+<span class="c1">// Inform the user</span>
+
+<span class="p">}</span>
+</code></pre>
+<a href='#handling-using-multiple-authentications' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='handling-using-multiple-authentications'>Handling/Using multiple authentications</h3>
+
+<p>In some cases, your application might need more than one authentications (Eg. An applicaiton for fitness may contain integration with all the fitness sites.) This can be handled with a container for authenticators. However, to distinguish between different instance of the same class (Eg. two <code>OAuthExplicit</code> authentications), there is a separate <code>name</code> property for the authentication. This will store the internal credentials with a different name.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">instagramAuth</span><span class="p">:</span> <span class="kt">OAuthImplicit</span> <span class="o">=</span> <span class="kt">OAuthImplicit</span><span class="p">()</span> 
+<span class="n">instagramAuth</span><span class="o">.</span><span class="n">redirectUri</span> <span class="o">=</span> <span class="s">"http://auth.innominds.com/callback"</span>
+<span class="n">instagramAuth</span><span class="o">.</span><span class="n">clientId</span> <span class="o">=</span> <span class="s">"f5d8e515192646688849c3a979404a81"</span>
+<span class="n">instagramAuth</span><span class="o">.</span><span class="n">clientSecret</span> <span class="o">=</span> <span class="s">"027c4860675d46e3935d420d02d8c89a"</span>
+<span class="n">instagramAuth</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Instagram"</span>
+
+
+<span class="c1">// For explicit stuff</span>
+<span class="k">let</span> <span class="nv">mapmyFitnessAuth</span><span class="p">:</span> <span class="kt">OAuthImplicit</span> <span class="o">=</span>  <span class="kt">OAuthImplicit</span><span class="p">()</span> 
+<span class="n">mapmyFitnessAuth</span><span class="o">.</span><span class="n">redirectUri</span> <span class="o">=</span> <span class="s">"http://oauth.innominds.com/callback"</span>
+<span class="n">mapmyFitnessAuth</span><span class="o">.</span><span class="n">clientId</span> <span class="o">=</span> <span class="s">"xw92pcw8uarmj5dx6qw2zntt8mpzkcf3"</span>
+<span class="n">mapmyFitnessAuth</span><span class="o">.</span><span class="n">clientSecret</span> <span class="o">=</span> <span class="s">"YS5efKsvTAtnTj2WP6ATuF4WSFsUjWXNkMBD9K7zVXg"</span>
+<span class="n">mapmyFitnessAuth</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"MapMyFitness"</span>
+
+</code></pre>
+<a href='#getting-headers-for-requests' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='getting-headers-for-requests'>Getting headers for requests</h4>
+
+<p>All the authentications will some how require you to put up an additional header while making a <code>URLRequest</code>. These are got
+by calling <code>authHeaders</code> computed  method of the class.
+&ldquo;`swift</p>
+
+<p>let instagramHeaders = instagramAuth.authHeaders</p>
+<pre class="highlight plaintext"><code></code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Innominds</a>. All rights reserved. (Last updated: 2017-05-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
