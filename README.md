@@ -27,6 +27,7 @@ The framework offers different classes for different authentications. You can cr
 ## Single site authentication
 
 `Authentication` is the base class for all the authentication types. 
+
 | Functionality | Method name |
 |-|-|
 | Check user is logged in | `checkLogin()`|
@@ -55,6 +56,7 @@ apiKeyAuth.apiKey = "YOUR API KEY"
 #### OAuth 
 
 OAuth authentication will need the following parameters for authentication
+
 | Parameter |
 |-|
 | Client ID |
