@@ -10,45 +10,10 @@ public class OAuth: Authentication, URLSessionDelegate {
     /// Redirect url configured for OAuth authentication
     public var redirectUri: String? = ""
 
-    public var clientId: String? {
-        get {
-            do {
-                let currentValue = try keychain.get("oauthClientId")
-                return currentValue
-            } catch {
-                return nil
-            }
-        }
-        set(newValue) {
-            do {
-                if let confValue = newValue {
-                    try keychain.set(confValue, key: "oauthClientId")
-                } else {
-                    try keychain.remove("oauthClientId")
-                }
-            } catch {}
-        }
-    }
+    
+    public var clientId: String?
 
-   public var clientSecret: String? {
-        get {
-            do {
-                let currentValue = try keychain.get("oauthClientSecret")
-                return currentValue
-            } catch {
-                return nil
-            }
-        }
-        set(newValue) {
-            do {
-                if let confValue = newValue {
-                    try keychain.set(confValue, key: "oauthClientSecret")
-                } else {
-                    try keychain.remove("oauthClientSecret")
-                }
-            } catch {}
-        }
-    }
+   public var clientSecret: String? 
 
    public var authUrl: String?
 
@@ -78,9 +43,9 @@ public class OAuth: Authentication, URLSessionDelegate {
    public var authToken: String? {
         get {
             do {
-                let hasKey = try keychain.contains("oauthKey")
+                let hasKey = try keychain.contains(name+"oauthKey")
                 if hasKey {
-                    let currentValue = try keychain.get("oauthKey")
+                    let currentValue = try keychain.get(name+"oauthKey")
                     return currentValue
                 }
             } catch {
@@ -90,12 +55,12 @@ public class OAuth: Authentication, URLSessionDelegate {
         }
         set (newValue) {
             do {
-                let hasKey = try keychain.contains("oauthKey")
+                let hasKey = try keychain.contains(name+"oauthKey")
                 if hasKey {
-                    try keychain.remove("oauthKey")
+                    try keychain.remove(name+"oauthKey")
                 }
                 if let confValue = newValue { // Set only if new value is confirmed
-                    try keychain.set(confValue, key: "oauthKey")
+                    try keychain.set(confValue, key: name+"oauthKey")
                 }
             } catch {}
         }

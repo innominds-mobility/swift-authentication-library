@@ -23,17 +23,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             instagramAuth.redirectUri = "http://auth.innominds.com/callback"
             instagramAuth.clientId = "f5d8e515192646688849c3a979404a81"
             instagramAuth.clientSecret = "027c4860675d46e3935d420d02d8c89a"
+            instagramAuth.name = "Instagram"
         }
         
         // For explicit stuff
-//        if let mapmyFitnessAuth2: OAuthExplicit = networkAdapter.getSpecificAuthenticator(){
-//            mapmyFitnessAuth2.redirectUri = "http://oauth.innominds.com/callback"
-//            mapmyFitnessAuth2.clientId = "xw92pcw8uarmj5dx6qw2zntt8mpzkcf3"
-//            mapmyFitnessAuth2.clientSecret = "YS5efKsvTAtnTj2WP6ATuF4WSFsUjWXNkMBD9K7zVXg"
-//        }
+        if let mapmyFitnessAuth2: OAuthExplicit = networkAdapter.getSpecificAuthenticator(){
+            mapmyFitnessAuth2.redirectUri = "http://oauth.innominds.com/callback"
+            mapmyFitnessAuth2.clientId = "xw92pcw8uarmj5dx6qw2zntt8mpzkcf3"
+            mapmyFitnessAuth2.clientSecret = "YS5efKsvTAtnTj2WP6ATuF4WSFsUjWXNkMBD9K7zVXg"
+            mapmyFitnessAuth2.name = "mapmyfitness"
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.loginSuccess), name: NSNotification.Name(rawValue: "AuthNotificationDidLogin"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.loginFailed), name: NSNotification.Name(rawValue: "AuthNotificationFailedLogin"), object: nil)
+        
     }
     
     

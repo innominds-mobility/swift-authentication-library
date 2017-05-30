@@ -32,6 +32,11 @@ public class Authentication: NSObject {
     */
 
     var keychain = Keychain(service:  String(format: "%@", Bundle.main.bundleIdentifier!))
+    
+    
+    /// Name of the authenticator. this is used to identify the authenticator better.
+    /// Defaults to **Auth**
+    public var name: String = "Auth"
 
    public var authHeaders: [String: String] {
         get {

@@ -32,6 +32,7 @@ class NetworkAPI {
     
     /// Lazy Loaded shared instance for the class
     static let sharedInstance: NetworkAPI = {
+        
         return NetworkAPI() // Lazy loading of singleton object.
     }()
     

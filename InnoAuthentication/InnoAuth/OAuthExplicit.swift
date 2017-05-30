@@ -102,7 +102,6 @@ public class OAuthExplicit: OAuth {
         ]
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
         let postingBody  = query(postingJSON).data(using: .utf8, allowLossyConversion: false)
-        print("Request Object:\(postingJSON)")
         let url: String = self.oAuthTokenUrl
         let request: NSMutableURLRequest = NSMutableURLRequest()
         request.url = NSURL(string: url) as URL?
