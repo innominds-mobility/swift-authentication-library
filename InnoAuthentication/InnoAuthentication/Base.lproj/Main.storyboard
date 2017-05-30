@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bWd-31-paK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InnoAuthentication" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-NS-ewf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="authCell" textLabel="ZXQ-tz-3jo" detailTextLabel="6nl-dn-hK7" style="IBUITableViewCellStyleSubtitle" id="ePB-Fs-s4l">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePB-Fs-s4l" id="Uia-kf-jWP">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZXQ-tz-3jo">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6nl-dn-hK7">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="rSA-Y3-pfx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3x7-6t-VYL"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys5-QB-WhZ">
+                                <rect key="frame" x="147.5" y="587" width="79" height="30"/>
+                                <state key="normal" title="Single Auth"/>
+                                <connections>
+                                    <segue destination="TV6-pN-exH" kind="show" id="0WG-HW-ec4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMd-6e-b0K">
+                                <rect key="frame" x="296" y="587" width="63" height="30"/>
+                                <state key="normal" title="Logoutall"/>
+                                <connections>
+                                    <action selector="logoutAllSites" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oyb-ka-6Kb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ys5-QB-WhZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1lY-Pi-Efi"/>
+                            <constraint firstItem="Ys5-QB-WhZ" firstAttribute="top" secondItem="AcB-NS-ewf" secondAttribute="bottom" constant="8" id="2SQ-eo-XvV"/>
+                            <constraint firstItem="AcB-NS-ewf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HoT-B7-KSA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mMd-6e-b0K" secondAttribute="trailing" id="MSS-1h-gMP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AcB-NS-ewf" secondAttribute="bottom" constant="88" id="ZHa-9m-9WR"/>
+                            <constraint firstItem="AcB-NS-ewf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fPf-pW-ni0"/>
+                            <constraint firstItem="mMd-6e-b0K" firstAttribute="bottom" secondItem="Ys5-QB-WhZ" secondAttribute="bottom" id="rCa-bu-BUc"/>
+                            <constraint firstAttribute="trailing" secondItem="AcB-NS-ewf" secondAttribute="trailing" id="vTU-GB-iLz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Plj-vS-CNE"/>
+                    <connections>
+                        <outlet property="theTableView" destination="AcB-NS-ewf" id="A3y-2P-0Ny"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="120.98950524737631"/>
+        </scene>
+        <!--Single Auth Controller-->
+        <scene sceneID="HaA-N8-P7d">
+            <objects>
+                <viewController id="TV6-pN-exH" customClass="SingleAuthController" customModule="InnoAuthentication" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Crl-ZU-PZT"/>
+                        <viewControllerLayoutGuide type="bottom" id="wjX-Ub-RHz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g81-Bj-fGt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpI-JK-2X7">
+                                <rect key="frame" x="164" y="283" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="doLogin:" destination="TV6-pN-exH" eventType="touchUpInside" id="rzJ-Zd-jcQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVc-kU-HTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2138" y="100"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tca-yw-QgO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bWd-31-paK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eR4-Xc-WMp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yvs-C1-b36"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHF-nz-aTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="120.98950524737631"/>
+        </scene>
+    </scenes>
+</document>
