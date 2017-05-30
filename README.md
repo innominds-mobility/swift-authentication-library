@@ -96,9 +96,40 @@ func loginFailed() {
 }
 ```
 
-# OAthSample-iOS-Application
 
-Appication consists of basic OAth sample
-Need to provide the required params(apiKey, userName,password,clientId,clientSecret and oathRedirectUri)
-On clicking the login you will be poped a webview with OAuth login 
-On loggin sucess "func loginSuccess()" and for fail "func loginFailed()" will be fired as call backs
+### Handling/Using multiple authentications
+
+In some cases, your application might need more than one authentications (Eg. An applicaiton for fitness may contain integration with all the fitness sites.) This can be handled with a container for authenticators. However, to distinguish between different instance of the same class (Eg. two `OAuthExplicit` authentications), there is a separate `name` property for the authentication. This will store the internal credentials with a different name.
+
+```swift
+        let instagramAuth: OAuthImplicit = OAuthImplicit() 
+        instagramAuth.redirectUri = "http://auth.innominds.com/callback"
+        instagramAuth.clientId = "f5d8e515192646688849c3a979404a81"
+        instagramAuth.clientSecret = "027c4860675d46e3935d420d02d8c89a"
+        instagramAuth.name = "Instagram"
+        
+        
+// For explicit stuff
+    let mapmyFitnessAuth: OAuthImplicit =  OAuthImplicit() 
+    mapmyFitnessAuth.redirectUri = "http://oauth.innominds.com/callback"
+    mapmyFitnessAuth.clientId = "xw92pcw8uarmj5dx6qw2zntt8mpzkcf3"
+    mapmyFitnessAuth.clientSecret = "YS5efKsvTAtnTj2WP6ATuF4WSFsUjWXNkMBD9K7zVXg"
+    mapmyFitnessAuth.name = "MapMyFitness"
+        
+```
+
+#### Getting headers for requests
+
+All the authentications will some how require you to put up an additional header while making a `URLRequest`. These are got
+by calling `authHeaders` computed  method of the class.
+```swift
+
+let instagramHeaders = instagramAuth.authHeaders
+
+```
+
+### TODO
+
+* Direct integration with `Alamofire`
+* Documentation for the library
+* Fat file libraries
