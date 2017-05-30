@@ -8,8 +8,14 @@ import UIKit
 	Extension for NSNotification.Name to represent Login details
 */
 public extension NSNotification.Name {
+    
+    /// Specific notification for Authentication
     public struct AuthNotification {
+        
+        /// Called on successful login of the oAuth
         public static let didLogin = NSNotification.Name("AuthNotificationDidLogin")
+        
+        /// Called when login fails in oAuth
         public static let failedLogin = NSNotification.Name("AuthNotificationFailedLogin")
     }
 }
@@ -38,6 +44,8 @@ public class Authentication: NSObject {
     /// Defaults to **Auth**
     public var name: String = "Auth"
 
+    
+   /// Authentication headers for the class
    public var authHeaders: [String: String] {
         get {
             return [:]

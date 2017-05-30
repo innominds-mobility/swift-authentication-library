@@ -28,6 +28,7 @@
 		D8D7F4B31EDC3E65004B113B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B11EDC3E65004B113B /* Logger.swift */; };
 		D8D7F4B51EDC3F24004B113B /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */; };
 		D8D7F4B71EDD52FF004B113B /* SingleAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B61EDD52FF004B113B /* SingleAuthController.swift */; };
+		D8D7F4B91EDD83D8004B113B /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B81EDD83D8004B113B /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		D8D7F4B11EDC3E65004B113B /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		D8D7F4B61EDD52FF004B113B /* SingleAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAuthController.swift; sourceTree = "<group>"; };
+		D8D7F4B81EDD83D8004B113B /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				D8D7F49C1EDC3E47004B113B /* Auth */,
 				D8D7F4911EDC3E3B004B113B /* InnoAuth.h */,
 				D8D7F4921EDC3E3B004B113B /* Info.plist */,
+				D8D7F4B81EDD83D8004B113B /* Readme.md */,
 			);
 			path = InnoAuth;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				D8D7F4B21EDC3E65004B113B /* AuthBrowserController.swift in Sources */,
 				D8D7F4B31EDC3E65004B113B /* Logger.swift in Sources */,
+				D8D7F4B91EDD83D8004B113B /* Readme.md in Sources */,
 				D8D7F4A61EDC3E51004B113B /* ApiKeyAuth.swift in Sources */,
 				D8D7F4AC1EDC3E51004B113B /* OAuthExplicit.swift in Sources */,
 				D8D7F4AD1EDC3E51004B113B /* OAuthImplicit.swift in Sources */,
@@ -530,6 +534,7 @@
 				D8D7F4891EDC3DE6004B113B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8D7F4981EDC3E3B004B113B /* Build configuration list for PBXNativeTarget "InnoAuth" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +543,7 @@
 				D8D7F49A1EDC3E3B004B113B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

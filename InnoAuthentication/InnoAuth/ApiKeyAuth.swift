@@ -40,10 +40,17 @@ public class ApiKeyAuth: Authentication {
     /// This is Swagger generated.
     public var paramName: String = ""
 
+    
+    /// Checks login for the class
+    ///
+    /// - Returns: boolean
     override public func checkLogin() -> Bool {
         return self.apiKey != nil
     }
-
+    
+    
+    /// Authentication Headers. Values that will be
+    /// put up in headers
     override  public var authHeaders: [String: String] {
         get {
             if let confirmedApiKey = self.apiKey {
@@ -54,14 +61,26 @@ public class ApiKeyAuth: Authentication {
         }
     }
 
+    
+   /// Initializer for the class.
+   ///
+   /// - Parameters:
+   ///   - location: Location of the apikey. Can be `header` or `body` or `query`. Defaults to `header`
+   ///   - paramName: name of the parameter. Depends on server documentation
    public init(location: String, paramName: String) {
        self.location = location
        self.paramName = paramName
     }
 
+    
+  /// Logout user
   override public func logoutUser() {
       self.apiKey = nil
     }
+    
+    /// Implementation of parseUrl. This is not required for this class
+    ///
+    /// - Parameter url: Url to parse
     override public func parseUrl(url: NSURL) {
         return
     }

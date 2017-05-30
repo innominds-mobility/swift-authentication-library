@@ -2,8 +2,12 @@
 
 import Foundation
 
+
+/// OAuth application authentication class
 public class OAuthApplication: OAuth {
 
+    
+    /// Token URL
     var oAuthTokenUrl: String {
         get {
             if self.tokenUrl == nil {
@@ -15,6 +19,10 @@ public class OAuthApplication: OAuth {
         }
     }
 
+    
+    /// Checks if user is logged in
+    ///
+    /// - Returns: Bool
     override public func checkLogin() -> Bool {
         return self.authToken != nil
     }

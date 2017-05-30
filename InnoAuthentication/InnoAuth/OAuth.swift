@@ -5,28 +5,42 @@ import UIKit
 
 // OAuth based authentication class. Handles OAuth based authentication
 
+/// Generic class that handles oAuth authentication
 public class OAuth: Authentication, URLSessionDelegate {
 
     /// Redirect url configured for OAuth authentication
     public var redirectUri: String? = ""
 
     
+    /// Client ID of the authentication
     public var clientId: String?
 
+   /// Client Secret
    public var clientSecret: String? 
 
+   /// Authorization url
    public var authUrl: String?
 
+   /// Token Url
    public var tokenUrl: String?
 
+    /// Scopes (optional) string
     public var scopes: String?
 
+   /// Init method for the oAuth authentication object
+   ///
+   /// - Parameters:
+   ///   - authUrl: authorization url
+   ///   - scopes: optional scope
+   ///   - tokenUrl: token url to fetch the token
    public init (_ authUrl: String, scopes: String? = nil, tokenUrl: String? = nil) {
         self.authUrl = authUrl
         self.scopes = scopes
         self.tokenUrl = tokenUrl
     }
 
+    
+   /// Authorization URL. This is generated with combination of scope, clientID and client Secret
    public var oAuthUrl: String {
         get {
             var scopesString = ""
@@ -40,6 +54,8 @@ public class OAuth: Authentication, URLSessionDelegate {
         }
     }
 
+    
+   /// Authorization token
    public var authToken: String? {
         get {
             do {
@@ -66,8 +82,13 @@ public class OAuth: Authentication, URLSessionDelegate {
         }
     }
 
+
+  /// Boolean that specifies whether to use Inapp browser or not.
+  /// Defaults to true
   public  var useInAppBrowser: Bool = true
 
+    
+    /// Logs in user via in app browser or safari browser
     override public func loginUser() {
 
         if self.useInAppBrowser == true {
@@ -99,14 +120,23 @@ public class OAuth: Authentication, URLSessionDelegate {
         // UIApplication.sharedApplication().openURL(NSURL(string: self.oAuthUrl)!)
     }
 
+    
+    /// Returns whether user is logged in or not
+    ///
+    /// - Returns: Bool
     override public func checkLogin() -> Bool {
          return self.authToken != nil
     }
 
+    
+    /// Logs the user out
     override public func logoutUser() {
         self.authToken = nil
     }
 
+    
+    /// The authentication headers to be sent with every request
+    /// upon user login
     override public var authHeaders: [String: String] {
         get {
             if let confirmedToken = self.authToken {
@@ -115,61 +145,11 @@ public class OAuth: Authentication, URLSessionDelegate {
             return [:]
         }
     }
-
-//    /// Method that applies non secure changing for Alamofire
-//    func applyNonSecureForAlamofire(connectionSession:URLSession) {
-//        let manager = AXManager.default
-//        manager.session = connectionSession
-//
-//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-//            print("::::::::::enter:::::::::")
-//            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
-//            var credential: URLCredential?
-//
-//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-//                disposition = URLSession.AuthChallengeDisposition.useCredential
-//                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//            } else {
-//                if challenge.previousFailureCount > 0 {
-//                    disposition = .cancelAuthenticationChallenge
-//                } else {
-//                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
-//
-//                    if credential != nil {
-//                        disposition = .useCredential
-//                    }
-//                }
-//            }
-//
-//            return (disposition, credential)
-//        }
-//    }
-//    func applyNonSecureForAlamofire() {
-//        let manager = AXManager.default
-//        
-//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-//            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
-//            var credential: URLCredential?
-//            
-//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-//                disposition = URLSession.AuthChallengeDisposition.useCredential
-//                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//            } else {
-//                if challenge.previousFailureCount > 0 {
-//                    disposition = .cancelAuthenticationChallenge
-//                } else {
-//                    credential = manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
-//                    
-//                    if credential != nil {
-//                        disposition = .useCredential
-//                    }
-//                }
-//            }
-//            
-//            return (disposition, credential)
-//        }
-//    }
-
+    
+    
+    /// Parses the URL for token
+    ///
+    /// - Parameter url: URL to parse
     override public func parseUrl(url: NSURL) {
         // Example:
         // axsample://#access_token=3de8f662d5c4ead0cd336817c62ea26d -> Valid
@@ -190,6 +170,11 @@ public class OAuth: Authentication, URLSessionDelegate {
         }
     }
 
+    
+    /// Returns a query string out of a [String:String] Dictionary
+    ///
+    /// - Parameter parameters: [String:String] dictionary
+    /// - Returns: String
     public func query(_ parameters: [String: String]) -> String {
         var components: [(String, String)] = []
 
@@ -247,6 +232,13 @@ public class OAuth: Authentication, URLSessionDelegate {
         return escaped
     }
 
+    
+   /// Default url session
+   ///
+   /// - Parameters:
+   ///   - session: Session
+   ///   - challenge: Challenge
+   ///   - completionHandler: Completion handler
    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
 

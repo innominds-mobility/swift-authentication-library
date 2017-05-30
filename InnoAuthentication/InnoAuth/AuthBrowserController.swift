@@ -5,6 +5,7 @@
 import UIKit
 import WebKit
 
+/// Internal browser that is used for OAuth authentications
 class AuthBrowserController: UIViewController, WKNavigationDelegate {
 
      let loadingWebView =  WKWebView()

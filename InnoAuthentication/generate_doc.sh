@@ -1,0 +1,1 @@
+jazzy -c --author "Innominds" --github_url "https://github.com/innominds-mobility/swift-authentication-library" -e "**/Keychain.swift" --readme "/Volumes/Data/Projects/Open/auth-library/InnoAuthentication/InnoAuth/Readme.md"

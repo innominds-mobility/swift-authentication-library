@@ -2,6 +2,8 @@
 
 import Foundation
 
+
+/// Class that handles oAuth password based authentication
 public class OAuthPassword: OAuth {
 
     var oAuthTokenUrl: String {

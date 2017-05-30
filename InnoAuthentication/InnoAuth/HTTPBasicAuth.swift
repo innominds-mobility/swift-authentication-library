@@ -4,7 +4,11 @@
 
 import Foundation
 
+/// Class that handles HTTP Basic authentication
 public class HTTPBasicAuth: Authentication {
+    
+    
+    /// Username for Basic Authentication
     public var basicAuthUsername: String? {
         set (newValue) {
             do {
@@ -25,6 +29,8 @@ public class HTTPBasicAuth: Authentication {
         }
     }
 
+    
+   /// Password for Basic Authentication
    public var basicAuthPassword: String? {
         set (newValue) {
             do {
@@ -45,6 +51,10 @@ public class HTTPBasicAuth: Authentication {
         }
     }
 
+    
+    /// Checks if user is logged in or not
+    ///
+    /// - Returns: Boolean
     override public func checkLogin() -> Bool {
         return (self.basicAuthPassword != nil && self.basicAuthUsername != nil)
     }
@@ -53,6 +63,8 @@ public class HTTPBasicAuth: Authentication {
 		// Not sure what needs to be done here.
     }
 
+    
+    /// Logs out the user
     override public func logoutUser() {
         self.basicAuthUsername = nil
         self.basicAuthPassword = nil
@@ -81,6 +93,10 @@ public class HTTPBasicAuth: Authentication {
         }
     }
 
+    
+    /// Default parse Url method
+    ///
+    /// - Parameter url: Url
     override public func parseUrl(url: NSURL) {
         return
     }

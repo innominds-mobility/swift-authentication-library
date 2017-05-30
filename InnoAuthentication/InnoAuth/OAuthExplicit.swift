@@ -3,6 +3,8 @@
 import Foundation
 import UIKit
 
+
+/// Class that handles oAuth Explicit (3 legged) authentication
 public class OAuthExplicit: OAuth {
 
   override  public var oAuthUrl: String {
