@@ -27,6 +27,7 @@
 		D8D7F4B21EDC3E65004B113B /* AuthBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B01EDC3E65004B113B /* AuthBrowserController.swift */; };
 		D8D7F4B31EDC3E65004B113B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B11EDC3E65004B113B /* Logger.swift */; };
 		D8D7F4B51EDC3F24004B113B /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */; };
+		D8D7F4B71EDD52FF004B113B /* SingleAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D7F4B61EDD52FF004B113B /* SingleAuthController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		D8D7F4B01EDC3E65004B113B /* AuthBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBrowserController.swift; sourceTree = "<group>"; };
 		D8D7F4B11EDC3E65004B113B /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D8D7F4B41EDC3F24004B113B /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		D8D7F4B61EDD52FF004B113B /* SingleAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAuthController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				D8D7F47F1EDC3DE6004B113B /* Assets.xcassets */,
 				D8D7F4811EDC3DE6004B113B /* LaunchScreen.storyboard */,
 				D8D7F4841EDC3DE6004B113B /* Info.plist */,
+				D8D7F4B61EDD52FF004B113B /* SingleAuthController.swift */,
 			);
 			path = InnoAuthentication;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D7F4B51EDC3F24004B113B /* NetworkAdapter.swift in Sources */,
+				D8D7F4B71EDD52FF004B113B /* SingleAuthController.swift in Sources */,
 				D8D7F47B1EDC3DE6004B113B /* ViewController.swift in Sources */,
 				D8D7F4791EDC3DE6004B113B /* AppDelegate.swift in Sources */,
 			);

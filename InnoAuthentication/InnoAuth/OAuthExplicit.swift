@@ -95,7 +95,7 @@ public class OAuthExplicit: OAuth {
         let postingJSON = [
             "grant_type": "authorization_code",
             "code": authCode,
-            "redirect_uri": "\(self.redirectUri!)://",
+            "redirect_uri": "\(self.redirectUri!)",
             "client_id": self.clientId!,
             "client_secret": self.clientSecret!,
             "format": "json"

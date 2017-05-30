@@ -91,10 +91,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func logoutAllSites(){
+    @IBAction func logoutAllSites(){
         for singleStuff in networkAdapter.authenticators.values{
             singleStuff.logoutUser()
         }
+        theTableView.reloadData()
     }
 
 
